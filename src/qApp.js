@@ -40,6 +40,7 @@ const qApp = async (config) => {
     const prefix = (config.prefix !== '') ? `/${config.prefix}/` : '/';
     window.require.config({
       baseUrl: `${(config.secure ? 'https://' : 'http://') + config.host + (config.port ? `:${config.port}` : '') + prefix}resources`,
+      webIntegrationId: config.webIntegrationId,
       paths: {
         qlik: `${(config.secure ? 'https://' : 'http://') + config.host + (config.port ? `:${config.port}` : '') + prefix}resources/js/qlik`,
       },

@@ -94,5 +94,7 @@ declare module "qdt-components" {
      * or App publish time
      */
     appId: string;
+    webIntegrationId?: string;
+    accessToken?: string;
   }
 }
