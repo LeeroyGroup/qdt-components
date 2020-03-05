@@ -26,6 +26,8 @@ const responseInterceptors = [{
 
 const qDoc = async (config) => {
   const myConfig = config;
+  const { webIntegrationId, csrfToken } = config;
+
   // Make it work for Qlik Core scaling https://github.com/qlik-oss/core-scaling
   // qlikcore/engine:12.248.0
   if (myConfig.core) {
@@ -36,7 +38,7 @@ const qDoc = async (config) => {
   const url = SenseUtilities.buildUrl(myConfig);
   const session = enigma.create({
     schema,
-    url,
+    url: `${url}?${webIntegrationId ? `qlik-web-integration-id=${webIntegrationId}` : ''}&${csrfToken ? `qlik-csrf-token=${csrfToken}` : ''}`,
     responseInterceptors,
   });
   const global = await session.open();

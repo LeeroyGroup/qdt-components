@@ -94,7 +94,15 @@ declare module "qdt-components" {
      * or App publish time
      */
     appId: string;
+    /**
+     * Web integration ID added in QCS management console. This is needed if you
+     * use the QCS hosted platform.
+     */
     webIntegrationId?: string;
-    accessToken?: string;
+    /**
+     * CSRF token for session. This is needed if you use the QCS hosted
+     * platform. Available at endpoint `GET /v1/csrf-token`.
+     */
+    csrfToken?: string;
   }
 }
